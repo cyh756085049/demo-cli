@@ -1,2 +1,4 @@
 #!/usr/bin/env node
-console.log('welcome to create project');
+const yargs = require('yargs');
+
+console.log('name', yargs.argv.name);
