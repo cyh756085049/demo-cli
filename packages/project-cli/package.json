@@ -13,6 +13,7 @@
     "create-project": "./bin/index.js"
   },
   "dependencies": {
+    "inquirer": "8.2.5",
     "yargs": "^17.7.2"
   }
 }
