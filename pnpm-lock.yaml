@@ -1,0 +1,17 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .: {}
+
+  examples/app:
+    dependencies:
+      project-cli:
+        specifier: workspace:*
+        version: link:../../packages/project-cli
+
+  packages/project-cli: {}

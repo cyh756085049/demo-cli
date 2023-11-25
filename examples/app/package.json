@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "project-cli": "workspace/*"
+    "project-cli": "workspace:*"
   }
 }
