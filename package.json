@@ -11,5 +11,8 @@
     "url": "https://github.com/cyh756085049"
   },
   "author": "Ramon Chen",
-  "license": "ISC"
+  "license": "ISC",
+  "bin": {
+    "create-demo-app": "./bin/index.js"
+  }
 }
