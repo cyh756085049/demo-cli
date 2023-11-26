@@ -1007,3 +1007,8 @@ pnpm publish --F project-cli
 
 发布成功后。我们在一个任意工程中，执行 `pnpm add project-cli -D` 安装脚手架依赖成功后，在工程中执行 `pnpm start create --name projectName` 命令即可。
 
+### 参考资料
+
+* [带你了解更全面的 Monorepo - 优劣、踩坑、选型](https://juejin.cn/post/7215886869199896637#heading-18)
+* [写给5年前端妹子的三万字脚手架教程](https://mp.weixin.qq.com/s/A6z3m6F8sKE-b7Do_aBpTw)
+
