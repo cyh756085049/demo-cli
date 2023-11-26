@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "project-cli": "workspace:*"
+    "antd": "^5.11.4",
+    "project-cli": "workspace:*",
+    "react": "^18.2.0"
   }
 }

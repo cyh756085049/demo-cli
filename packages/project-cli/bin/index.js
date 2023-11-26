@@ -3,6 +3,7 @@ const yargs = require('yargs');
 const path = require('path');
 const { inquirerPrompt } = require('./inquirer');
 const { copyDir, checkMkdirExists, copyFile, copyTemplate } = require('./copy');
+const { install } = require('./manager');
 
 console.log('name', yargs.argv.name);
 
@@ -47,7 +48,8 @@ yargs.command(
                     path.resolve(__dirname, `template/${type}/index.tpl`),
                     path.resolve(process.cwd(), `./src/pages/${name}/index.js`),
                     { name },
-                )
+                );
+                install(process.cwd(), answers);
             }
         })
     }
