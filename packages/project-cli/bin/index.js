@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const yargs = require('yargs');
+const { inquirerPrompt } = require('./inquirer');
 
 console.log('name', yargs.argv.name);
 
@@ -16,5 +17,8 @@ yargs.command(
     },
     (argv) => { // handler: 函数，可以在这个函数中专门处理该子命令参数
         console.log('argv', argv);
+        inquirerPrompt(argv).then(answers => {
+            console.log(answers);
+        })
     }
 ).argv;
