@@ -1,6 +1,7 @@
 const copydir = require('copy-dir');
 const fs = require('fs');
 const path = require('path');
+const Mustache = require('mustache');
 
 /**
  * 拷贝文件夹
@@ -47,7 +48,38 @@ const copyFile = (from ,to) => {
   fs.writeFileSync(to, buffer);
 }
 
+/**
+ * 获取动态模板内容
+ * @param {string} path 动态模板文件的相对路径
+ * @param {*} data 动态模板文件的配置数据
+ * @returns 
+ */
+const readTemplate = (path, data = {}) => {
+  //  Mustache.render 的第一个参数类型是个字符串，所以要指定 encoding 类型为 utf8，否则返回 Buffer 类型数据
+  const str = fs.readFileSync(path, { encoding: 'utf-8' });
+  return Mustache.render(str, data);
+}
+
+/**
+ * 拷贝模板文件内容
+ * @param {string} from 
+ * @param {string} to 
+ * @param {*} data 
+ * @returns 
+ */
+const copyTemplate = (from, to, data = {}) => {
+  // path.extname(from) 返回文件扩展名
+  if (path.extname(from) !== '.tpl') {
+    return copyFile(from, to);
+  }
+  const parentToPath = path.dirname(to);
+  mkdirGuard(parentToPath);
+  fs.writeFileSync(to, readTemplate(from, data));
+}
+
 exports.copyDir = copyDir;
 exports.checkMkdirExists = checkMkdirExists;
 exports.mkdirGuard = mkdirGuard;
 exports.copyFile = copyFile;
+exports.readTemplate = readTemplate;
+exports.copyTemplate = copyTemplate;

@@ -2,7 +2,7 @@
 const yargs = require('yargs');
 const path = require('path');
 const { inquirerPrompt } = require('./inquirer');
-const { copyDir, checkMkdirExists, copyFile } = require('./copy');
+const { copyDir, checkMkdirExists, copyFile, copyTemplate } = require('./copy');
 
 console.log('name', yargs.argv.name);
 
@@ -38,9 +38,15 @@ yargs.command(
                 //     path.resolve(process.cwd(), `./src/pages/${name}`)
                 // )
                 // 拷贝文件：copyFile 和 copyDir 使用的区别在参数，copyFile 要求参数 from 和参数 to 都精确到文件路径
-                copyFile(
-                    path.resolve(__dirname, `template/${type}/index.js`),
+                // copyFile(
+                //     path.resolve(__dirname, `template/${type}/index.js`),
+                //     path.resolve(process.cwd(), `./src/pages/${name}/index.js`),
+                // )
+                // 拷贝模板文件，自定义模板内容标题
+                copyTemplate(
+                    path.resolve(__dirname, `template/${type}/index.tpl`),
                     path.resolve(process.cwd(), `./src/pages/${name}/index.js`),
+                    { name },
                 )
             }
         })

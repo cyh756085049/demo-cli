@@ -1,8 +1,8 @@
 import React from 'react';
-const CommonPage = () => {
+const {{name}} = () => {
   return (
     <div></div>
   );
 };
 
-export default CommonPage;
+export default {{name}};
